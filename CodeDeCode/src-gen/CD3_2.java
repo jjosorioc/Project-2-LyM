@@ -63,9 +63,9 @@ public final class CD3_2 {
       $line=31;
       B=$fix($opIntvlY('0','9'));
       $line=32;
-      Object coder=$fix(CD3_2.createCoder());
+      Object coder=$fix($invokeMethod(CD3_2.class,"createCoder",true,null,new Object[]{}));
       $line=33;
-      Object deCoder=$fix(CD3_2.createDecoder());
+      Object deCoder=$fix($invokeMethod(CD3_2.class,"createDecoder",true,null,new Object[]{}));
       $line=40;
       Utilities.testCodeDecode($cast(gold.structures.automaton.ITransducer.class,coder),$cast(gold.structures.automaton.ITransducer.class,deCoder));
     }
