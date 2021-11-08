@@ -26,7 +26,7 @@ var B
 
 procedure main(args:String[]) begin
 	var sc:java.util.Scanner(System.$in)
-    
+
     A = ('a'‥'z')
     B = ('0'‥'9')
 	coder:=createCoder()
