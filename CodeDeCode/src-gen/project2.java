@@ -261,34 +261,45 @@ public final class project2 {
         $result=alpha;
         if (true) break $try;
       }
-      $line=117;
-      if (($opEqualY(input,alpha)&&!$opEqualY(sigma,"null"))) {
+      else {
         $line=117;
-        $result=sigma;
-        if (true) break $try;
+        if (($opEqualY(input,alpha)&&!$opEqualY(sigma,"null"))) {
+          $line=117;
+          $result=sigma;
+          if (true) break $try;
+        }
+        else {
+          $line=119;
+          if (((!$opMembrY(input,GCollections.asSet(sigma,alpha))&&!$opEqualY(alpha,"null"))&&!$opEqualY(sigma,"null"))) {
+            $line=120;
+            if ($opEqualY(anterior,input)) {
+              $line=120;
+              $result='#';
+              if (true) break $try;
+            }
+            else {
+              $line=123;
+              if ((!$opEqualY(input,anterior)&&$opEqualY(indice,1))) {
+                $line=123;
+                $result=project2.upperShift(input,1);
+                if (true) break $try;
+              }
+              else {
+                $line=126;
+                if ((!$opEqualY(input,anterior)&&$opEqualY(indice,2))) {
+                  $line=126;
+                  $result=project2.upperShift(input,0);
+                  if (true) break $try;
+                }
+              }
+            }
+          }
+        }
       }
-      $line=121;
-      if ($opEqualY(anterior,input)) {
-        $line=121;
-        $result='#';
-        if (true) break $try;
-      }
-      $line=125;
-      if ((!$opEqualY(input,anterior)&&$opEqualY(indice,1))) {
-        $line=125;
-        $result=project2.upperShift(input,1);
-        if (true) break $try;
-      }
-      $line=127;
-      if ((!$opEqualY(input,anterior)&&$opEqualY(indice,2))) {
-        $line=127;
-        $result=project2.upperShift(input,0);
-        if (true) break $try;
-      }
-      $line=130;
+      $line=135;
       $result=input;
       if (true) break $try;
-      $line=131;
+      $line=136;
       $rethrow(new RuntimeException("The function \"h(\u27E8sigma,alpha,anterior,indice,replacements\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -300,10 +311,10 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=137;
+      $line=142;
       $result="";
       if (true) break $try;
-      $line=138;
+      $line=143;
       $rethrow(new RuntimeException("The function \"g(s:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -315,210 +326,210 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=142;
+      $line=147;
       Object newSymbol=$fix(0);
-      $line=144;
+      $line=149;
       if (($opEqualY(shift,0)&&!$opEqualY(symbol,'z'))) {
-        $line=144;
+        $line=149;
         newSymbol=$fix($opSubtrY(symbol,32));
       }
       else {
-        $line=145;
+        $line=150;
         if (!$opEqualY(symbol,'z')) {
-          $line=146;
+          $line=151;
           newSymbol=$fix($opSubtrY($opAdditY(symbol,shift),32));
         }
         else {
-          $line=147;
+          $line=152;
           if (($opEqualY(symbol,'z')&&$opEqualY(shift,0))) {
-            $line=148;
+            $line=153;
             newSymbol=$fix(90);
           }
           else {
-            $line=150;
+            $line=155;
             $result='A';
             if (true) break $try;
           }
         }
       }
-      $line=153;
+      $line=158;
       if ($opEqualY(newSymbol,65)) {
-        $line=153;
+        $line=158;
         $result='A';
         if (true) break $try;
       }
       else {
-        $line=154;
+        $line=159;
         if ($opEqualY(newSymbol,66)) {
-          $line=154;
+          $line=159;
           $result='B';
           if (true) break $try;
         }
         else {
-          $line=155;
+          $line=160;
           if ($opEqualY(newSymbol,67)) {
-            $line=155;
+            $line=160;
             $result='C';
             if (true) break $try;
           }
           else {
-            $line=156;
+            $line=161;
             if ($opEqualY(newSymbol,68)) {
-              $line=156;
+              $line=161;
               $result='D';
               if (true) break $try;
             }
             else {
-              $line=157;
+              $line=162;
               if ($opEqualY(newSymbol,69)) {
-                $line=157;
+                $line=162;
                 $result='E';
                 if (true) break $try;
               }
               else {
-                $line=158;
+                $line=163;
                 if ($opEqualY(newSymbol,70)) {
-                  $line=158;
+                  $line=163;
                   $result='F';
                   if (true) break $try;
                 }
                 else {
-                  $line=159;
+                  $line=164;
                   if ($opEqualY(newSymbol,71)) {
-                    $line=159;
+                    $line=164;
                     $result='G';
                     if (true) break $try;
                   }
                   else {
-                    $line=160;
+                    $line=165;
                     if ($opEqualY(newSymbol,72)) {
-                      $line=160;
+                      $line=165;
                       $result='H';
                       if (true) break $try;
                     }
                     else {
-                      $line=161;
+                      $line=166;
                       if ($opEqualY(newSymbol,73)) {
-                        $line=161;
+                        $line=166;
                         $result='I';
                         if (true) break $try;
                       }
                       else {
-                        $line=162;
+                        $line=167;
                         if ($opEqualY(newSymbol,74)) {
-                          $line=162;
+                          $line=167;
                           $result='J';
                           if (true) break $try;
                         }
                         else {
-                          $line=163;
+                          $line=168;
                           if ($opEqualY(newSymbol,75)) {
-                            $line=163;
+                            $line=168;
                             $result='K';
                             if (true) break $try;
                           }
                           else {
-                            $line=164;
+                            $line=169;
                             if ($opEqualY(newSymbol,76)) {
-                              $line=164;
+                              $line=169;
                               $result='L';
                               if (true) break $try;
                             }
                             else {
-                              $line=165;
+                              $line=170;
                               if ($opEqualY(newSymbol,77)) {
-                                $line=165;
+                                $line=170;
                                 $result='M';
                                 if (true) break $try;
                               }
                               else {
-                                $line=166;
+                                $line=171;
                                 if ($opEqualY(newSymbol,78)) {
-                                  $line=166;
+                                  $line=171;
                                   $result='N';
                                   if (true) break $try;
                                 }
                                 else {
-                                  $line=167;
+                                  $line=172;
                                   if ($opEqualY(newSymbol,79)) {
-                                    $line=167;
+                                    $line=172;
                                     $result='O';
                                     if (true) break $try;
                                   }
                                   else {
-                                    $line=168;
+                                    $line=173;
                                     if ($opEqualY(newSymbol,80)) {
-                                      $line=168;
+                                      $line=173;
                                       $result='P';
                                       if (true) break $try;
                                     }
                                     else {
-                                      $line=169;
+                                      $line=174;
                                       if ($opEqualY(newSymbol,81)) {
-                                        $line=169;
+                                        $line=174;
                                         $result='Q';
                                         if (true) break $try;
                                       }
                                       else {
-                                        $line=170;
+                                        $line=175;
                                         if ($opEqualY(newSymbol,82)) {
-                                          $line=170;
+                                          $line=175;
                                           $result='R';
                                           if (true) break $try;
                                         }
                                         else {
-                                          $line=171;
+                                          $line=176;
                                           if ($opEqualY(newSymbol,83)) {
-                                            $line=171;
+                                            $line=176;
                                             $result='S';
                                             if (true) break $try;
                                           }
                                           else {
-                                            $line=172;
+                                            $line=177;
                                             if ($opEqualY(newSymbol,84)) {
-                                              $line=172;
+                                              $line=177;
                                               $result='T';
                                               if (true) break $try;
                                             }
                                             else {
-                                              $line=173;
+                                              $line=178;
                                               if ($opEqualY(newSymbol,85)) {
-                                                $line=173;
+                                                $line=178;
                                                 $result='U';
                                                 if (true) break $try;
                                               }
                                               else {
-                                                $line=174;
+                                                $line=179;
                                                 if ($opEqualY(newSymbol,86)) {
-                                                  $line=174;
+                                                  $line=179;
                                                   $result='V';
                                                   if (true) break $try;
                                                 }
                                                 else {
-                                                  $line=175;
+                                                  $line=180;
                                                   if ($opEqualY(newSymbol,87)) {
-                                                    $line=175;
+                                                    $line=180;
                                                     $result='W';
                                                     if (true) break $try;
                                                   }
                                                   else {
-                                                    $line=176;
+                                                    $line=181;
                                                     if ($opEqualY(newSymbol,88)) {
-                                                      $line=176;
+                                                      $line=181;
                                                       $result='X';
                                                       if (true) break $try;
                                                     }
                                                     else {
-                                                      $line=177;
+                                                      $line=182;
                                                       if ($opEqualY(newSymbol,89)) {
-                                                        $line=177;
+                                                        $line=182;
                                                         $result='Y';
                                                         if (true) break $try;
                                                       }
                                                       else {
-                                                        $line=178;
+                                                        $line=183;
                                                         if ($opEqualY(newSymbol,90)) {
-                                                          $line=178;
+                                                          $line=183;
                                                           $result='Z';
                                                           if (true) break $try;
                                                         }
@@ -547,7 +558,7 @@ public final class project2 {
           }
         }
       }
-      $line=180;
+      $line=185;
       $rethrow(new RuntimeException("The function \"upperShift(symbol:Object,shift:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {

@@ -37,7 +37,7 @@ function createCoder():ITransducer begin
 	mod5 := {0,1,2,3,4}
 	// Sigma, Alpha, anterior, indice modulo 3, replacements mod 5
 	
-	Q:= sigma × sigma × sigma ×mod3 ×mod5
+	Q:= sigma × sigma × sigma×mod3 ×mod5
 	estados := Q ∪{"fin"}
 	
 	Σ :=('a'‥'z')∪{ ':', '$'} // Chars input
@@ -113,18 +113,23 @@ function h(⟨sigma, alpha, anterior, indice, replacements⟩,input) begin
 	
 	// When a replacement occurs
 	if input=sigma and alpha≠"null" then return alpha
-	end
-	if input=alpha and sigma≠"null" then return sigma
-	end
 	
-
-	if anterior = input then return '#' end // Repeated symbols
-
+	elseif input=alpha and sigma≠"null" then return sigma
 	
-	//TODO: indice =1 return next Upper
-	if input≠anterior and indice = 1 then return upperShift(input, 1) end 
+	elseif input∉{sigma,alpha} and alpha≠"null" and sigma≠"null" then
+		if anterior = input then return '#'  // Repeated symbols
 		
-	if input≠anterior and indice = 2 then return upperShift(input, 0) end 
+		// index%3 = 1
+		elseif input≠anterior and indice = 1 then return upperShift(input, 1)
+		
+		// index%3 = 2
+		elseif input≠anterior and indice = 2 then return upperShift(input, 0) 
+		end 
+	end
+	
+
+	
+
 	
 	// Else return input
 	return input
