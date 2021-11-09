@@ -41,7 +41,7 @@ function createCoder():ITransducer begin
 	estados := Q ∪{"fin"}
 	
 	Σ :=('a'‥'z')∪{ ':', '$'} // Chars input
-	Σ´:=Σ∪{'#'}∪{'0', '1', '2', '3', '4'} // Chars output
+	Σ´:=Σ∪{'#'}∪{'0', '1', '2', '3', '4'} ∪ ('A'‥'Z') // Chars output
 	q₀:= ⟨"null", "null", "null", 1, 0⟩
 	F:=	 {"fin"} //estados finales
 
@@ -139,8 +139,44 @@ end
 
 
 function upperShift(symbol, shift) begin
+	newSymbol = 0
 	
-	return symbol
+	if shift = 0 and symbol≠'z' then newSymbol := symbol - 32
+	elseif symbol≠'z' then 
+		newSymbol := symbol + shift - 32
+	elseif symbol='z' and shift = 0 then 
+		newSymbol = 90
+	else
+		return 'A'
+	end
+		
+	if newSymbol=65 then return 'A'
+	elseif newSymbol=66 then return 'B'
+	elseif newSymbol=67 then return 'C'
+	elseif newSymbol=68 then return 'D'
+	elseif newSymbol=69 then return 'E'
+	elseif newSymbol=70 then return 'F'
+	elseif newSymbol=71 then return 'G'
+	elseif newSymbol=72 then return 'H'
+	elseif newSymbol=73 then return 'I'
+	elseif newSymbol=74 then return 'J'
+	elseif newSymbol=75 then return 'K'
+	elseif newSymbol=76 then return 'L'
+	elseif newSymbol=77 then return 'M'
+	elseif newSymbol=78 then return 'N'
+	elseif newSymbol=79 then return 'O'
+	elseif newSymbol=80 then return 'P'
+	elseif newSymbol=81 then return 'Q'
+	elseif newSymbol=82 then return 'R'
+	elseif newSymbol=83 then return 'S'
+	elseif newSymbol=84 then return 'T'
+	elseif newSymbol=85 then return 'U'
+	elseif newSymbol=86 then return 'V'
+	elseif newSymbol=87 then return 'W'
+	elseif newSymbol=88 then return 'X'
+	elseif newSymbol=89 then return 'Y'
+	elseif newSymbol=90 then return 'Z'
+	end
 end
 
 /*
