@@ -244,7 +244,22 @@ public final class project2 {
         $result='#';
         if (true) break $try;
       }
+      $line=119;
+      if ((!$opEqualY(input,anterior)&&$opEqualY(indice,1))) {
+        $line=119;
+        $result=project2.upperShift(input,1);
+        if (true) break $try;
+      }
       $line=121;
+      if ((!$opEqualY(input,anterior)&&$opEqualY(indice,2))) {
+        $line=121;
+        $result=project2.upperShift(input,0);
+        if (true) break $try;
+      }
+      $line=123;
+      $result=input;
+      if (true) break $try;
+      $line=124;
       $rethrow(new RuntimeException("The function \"h(\u27E8sigma,alpha,anterior,indice,replacements\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -256,14 +271,29 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=127;
+      $line=130;
       $result="";
       if (true) break $try;
-      $line=128;
+      $line=131;
       $rethrow(new RuntimeException("The function \"g(s:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
       $rethrow($throwable,project2.class,"g",$line);
+    }
+    return $result;
+  }
+  public static Object upperShift(Object symbol, Object shift) {
+    int $line=0;
+    Object $result=null;
+    $try:try {
+      $line=136;
+      $result=symbol;
+      if (true) break $try;
+      $line=137;
+      $rethrow(new RuntimeException("The function \"upperShift(symbol:Object,shift:Object)\" did not return a value."));
+    }
+    catch (Throwable $throwable) {
+      $rethrow($throwable,project2.class,"upperShift",$line);
     }
     return $result;
   }
