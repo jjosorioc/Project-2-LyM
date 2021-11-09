@@ -82,7 +82,7 @@ public final class project2 {
       $line=43;
       Object \u03A3=$fix($opUnionY($opIntvlY('a','z'),GCollections.asSet(':','$')));
       $line=44;
-      Object \u03A3_=$fix($opUnionY(\u03A3,GCollections.asSet('#')));
+      Object \u03A3_=$fix($opUnionY($opUnionY(\u03A3,GCollections.asSet('#')),GCollections.asSet('0','1','2','3','4')));
       $line=45;
       Object q_0=$fix(GCollections.asList("null","null","null",1,0));
       $line=46;
@@ -208,58 +208,87 @@ public final class project2 {
       Object replacements=$v4.next();
       $line=103;
       if ($opEqualY(input,'$')) {
-        $line=103;
-        $result="";
-        if (true) break $try;
+        $line=104;
+        if ($opEqualY(replacements,0)) {
+          $line=104;
+          $result='0';
+          if (true) break $try;
+        }
+        else {
+          $line=105;
+          if ($opEqualY(replacements,1)) {
+            $line=105;
+            $result='1';
+            if (true) break $try;
+          }
+          else {
+            $line=106;
+            if ($opEqualY(replacements,2)) {
+              $line=106;
+              $result='2';
+              if (true) break $try;
+            }
+            else {
+              $line=107;
+              if ($opEqualY(replacements,3)) {
+                $line=107;
+                $result='3';
+                if (true) break $try;
+              }
+              else {
+                $line=108;
+                if ($opEqualY(replacements,4)) {
+                  $line=108;
+                  $result='4';
+                  if (true) break $try;
+                }
+              }
+            }
+          }
+        }
       }
       else {
-        $line=105;
+        $line=111;
         if ($opEqualY(input,':')) {
-          $line=105;
+          $line=111;
           $result=':';
           if (true) break $try;
         }
       }
-      $line=109;
+      $line=115;
       if (($opEqualY(input,sigma)&&!$opEqualY(alpha,"null"))) {
-        $line=109;
+        $line=115;
         $result=alpha;
         if (true) break $try;
       }
-      $line=111;
+      $line=117;
       if (($opEqualY(input,alpha)&&!$opEqualY(sigma,"null"))) {
-        $line=111;
+        $line=117;
         $result=sigma;
         if (true) break $try;
       }
-      $line=114;
-      if ($opEqualY(input,'$')) {
-        $line=114;
-        $result=replacements;
-        if (true) break $try;
-      }
-      $line=116;
+      $line=121;
       if ($opEqualY(anterior,input)) {
-        $line=116;
+        $line=121;
         $result='#';
         if (true) break $try;
       }
-      $line=119;
+      $line=125;
       if ((!$opEqualY(input,anterior)&&$opEqualY(indice,1))) {
-        $line=119;
+        $line=125;
         $result=project2.upperShift(input,1);
         if (true) break $try;
       }
-      $line=121;
+      $line=127;
       if ((!$opEqualY(input,anterior)&&$opEqualY(indice,2))) {
-        $line=121;
+        $line=127;
         $result=project2.upperShift(input,0);
         if (true) break $try;
       }
-      $line=123;
+      $line=130;
       $result=input;
       if (true) break $try;
-      $line=124;
+      $line=131;
       $rethrow(new RuntimeException("The function \"h(\u27E8sigma,alpha,anterior,indice,replacements\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -271,10 +300,10 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=130;
+      $line=137;
       $result="";
       if (true) break $try;
-      $line=131;
+      $line=138;
       $rethrow(new RuntimeException("The function \"g(s:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -286,10 +315,10 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=136;
+      $line=143;
       $result=symbol;
       if (true) break $try;
-      $line=137;
+      $line=144;
       $rethrow(new RuntimeException("The function \"upperShift(symbol:Object,shift:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {

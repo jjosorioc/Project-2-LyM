@@ -41,7 +41,7 @@ function createCoder():ITransducer begin
 	estados := Q ∪{"fin"}
 	
 	Σ :=('a'‥'z')∪{ ':', '$'} // Chars input
-	Σ´:=Σ∪{'#'} // Chars output
+	Σ´:=Σ∪{'#'}∪{'0', '1', '2', '3', '4'} // Chars output
 	q₀:= ⟨"null", "null", "null", 1, 0⟩
 	F:=	 {"fin"} //estados finales
 
@@ -100,26 +100,33 @@ end
 
 function h(⟨sigma, alpha, anterior, indice, replacements⟩,input) begin
 
-	if input='$' then return λ
+	if input='$' then // Print amount of replacements
+		if replacements = 0 then return '0'
+		elseif  replacements = 1 then return '1'
+		elseif  replacements = 2 then return '2'
+		elseif  replacements = 3 then return '3'
+		elseif  replacements = 4 then return '4'
+		end
    	
-   	elseif input=':' then return ':'
+   	elseif input=':' then return ':' // Print :
    	end
 	
-	
+	// When a replacement occurs
 	if input=sigma and alpha≠"null" then return alpha
 	end
 	if input=alpha and sigma≠"null" then return sigma
 	end
 	
-	if input='$' then return replacements end //TODO
-		
-	if anterior = input then return '#' end
 
+	if anterior = input then return '#' end // Repeated symbols
+
+	
 	//TODO: indice =1 return next Upper
 	if input≠anterior and indice = 1 then return upperShift(input, 1) end 
 		
 	if input≠anterior and indice = 2 then return upperShift(input, 0) end 
 	
+	// Else return input
 	return input
 end
 
