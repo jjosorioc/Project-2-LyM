@@ -3,23 +3,17 @@
  * 
  * Juan José Osorio 202021720 j.osorioc@uniandes.edu.co
  * 
- * Luis Alejandro Rubiano 
+ * Luis Alejandro Rubiano 202013482 la.rubiano@uniandes.edu.co
  */
 
 
 
 using gold.**
   
-         
-  
-var A
-var B
+      
 
 procedure main(args:String[]) begin
 	var sc:java.util.Scanner(System.$in)
-    
-    A = ('a'‥'z')
-    B = ('0'‥'9')
 	coder:=createCoder()
    	//deCoder:=createDecoder()
     
@@ -122,8 +116,8 @@ function h(⟨sigma, alpha, anterior, indice, replacements⟩,input) begin
 	if anterior = input then return '#' end
 
 	//TODO: indice =1 return next Upper
-	
-	return input
+//	if input≠anterior and indice = 1 then return uppernext(k) end 
+//	return input
 end
 
 
@@ -132,6 +126,10 @@ end
 function g(s) begin
 	return λ
 end
+
+//function uppernext(k) begin
+//	return 
+//end
 
 /*
  * ####################################################### DECODER #######################################################

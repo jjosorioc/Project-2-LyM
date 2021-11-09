@@ -49,22 +49,16 @@ public final class project2 {
   static {
     gold.swing.util.GUtilities.installGoldLookAndFeel();
   }
-  public static Object A=null;
-  public static Object B=null;
   public static void main(String[] args) {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=19;
+      $line=16;
       java.util.Scanner sc=null;
       sc=$invokeConstructor(java.util.Scanner.class,new Object[]{$invokeField(System.class,"in",true,null)});
-      $line=21;
-      A=$fix($opIntvlY('a','z'));
-      $line=22;
-      B=$fix($opIntvlY('0','9'));
-      $line=23;
+      $line=17;
       Object coder=$fix(project2.createCoder());
-      $line=31;
+      $line=25;
       Utilities.test($cast(gold.structures.automaton.IAutomaton.class,coder));
     }
     catch (Throwable $throwable) {
@@ -75,28 +69,28 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=41;
+      $line=35;
       Object sigma=$fix($opUnionY($opIntvlY('a','z'),GCollections.asSet("null")));
-      $line=42;
+      $line=36;
       Object mod3=$fix(GCollections.asSet(0,1,2));
-      $line=43;
+      $line=37;
       Object mod5=$fix(GCollections.asSet(0,1,2,3,4));
-      $line=46;
+      $line=40;
       Object Q=$fix($opCartsY(new Object[]{sigma,sigma,sigma,mod3,mod5}));
-      $line=47;
+      $line=41;
       Object estados=$fix($opUnionY(Q,GCollections.asSet("fin")));
-      $line=49;
+      $line=43;
       Object \u03A3=$fix($opUnionY($opIntvlY('a','z'),GCollections.asSet(':','$')));
-      $line=50;
+      $line=44;
       Object \u03A3_=$fix($opUnionY(\u03A3,GCollections.asSet('#')));
-      $line=51;
+      $line=45;
       Object q_0=$fix(GCollections.asList("null","null","null",1,0));
-      $line=52;
+      $line=46;
       Object F=$fix(GCollections.asSet("fin"));
-      $line=54;
+      $line=48;
       $result=$invokeConstructor(GDeterministicTransducer.class,new Object[]{estados,\u03A3,\u03A3_,q_0,F,new GMethod(project2.class,"\u03B4"),new GMethod(project2.class,"g"),new GMethod(project2.class,"h")});
       if (true) break $try;
-      $line=55;
+      $line=49;
       $rethrow(new RuntimeException("The function \"createCoder()\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -108,10 +102,10 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=60;
+      $line=54;
       $result="fin";
       if (true) break $try;
-      $line=61;
+      $line=55;
       $rethrow(new RuntimeException("The function \"\u03B4(state:Object,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -129,57 +123,57 @@ public final class project2 {
       Object anterior=$v2.next();
       Object indice=$v2.next();
       Object replacements=$v2.next();
-      $line=67;
+      $line=61;
       Object nuevoReplacements=$fix(replacements);
-      $line=68;
+      $line=62;
       if ($opMembrY(input,GCollections.asSet(sigma,alpha))) {
-        $line=68;
+        $line=62;
         nuevoReplacements=$fix($opModulY($opAdditY(nuevoReplacements,1),5));
       }
-      $line=72;
+      $line=66;
       if ($opEqualY(input,'$')) {
-        $line=72;
+        $line=66;
         $result="fin";
         if (true) break $try;
       }
       else {
-        $line=74;
+        $line=68;
         if ($opEqualY(input,':')) {
-          $line=74;
+          $line=68;
           $result=GCollections.asList(sigma,alpha,anterior,indice,replacements);
           if (true) break $try;
         }
       }
-      $line=80;
+      $line=74;
       if ($opEqualY(sigma,"null")) {
-        $line=80;
+        $line=74;
         $result=GCollections.asList(input,"null","null",1,0);
         if (true) break $try;
       }
       else {
-        $line=83;
+        $line=77;
         if (($opMembrY(sigma,$opIntvlY('a','z'))&&$opEqualY(alpha,"null"))) {
-          $line=83;
+          $line=77;
           $result=GCollections.asList(sigma,input,"null",1,0);
           if (true) break $try;
         }
       }
-      $line=88;
+      $line=82;
       if (($opEqualY(anterior,"null")&&$opEqualY(indice,"null"))) {
-        $line=88;
+        $line=82;
         $result=GCollections.asList(sigma,alpha,input,$opModulY($opAdditY($opSubtrY(indice,'0'),1),3),nuevoReplacements);
         if (true) break $try;
       }
-      $line=92;
+      $line=86;
       if ($opEqualY(input,'$')) {
-        $line=92;
+        $line=86;
         $result="fin";
         if (true) break $try;
       }
-      $line=95;
+      $line=89;
       $result=GCollections.asList(sigma,alpha,input,$opModulY($opAdditY($opSubtrY(indice,'0'),1),3),nuevoReplacements);
       if (true) break $try;
-      $line=96;
+      $line=90;
       $rethrow(new RuntimeException("The function \"\u03B4(\u27E8sigma,alpha,anterior,indice,replacements\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -191,10 +185,10 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=103;
+      $line=97;
       $result="";
       if (true) break $try;
-      $line=104;
+      $line=98;
       $rethrow(new RuntimeException("The function \"h(state:Object,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -212,48 +206,45 @@ public final class project2 {
       Object anterior=$v4.next();
       Object indice=$v4.next();
       Object replacements=$v4.next();
-      $line=109;
+      $line=103;
       if ($opEqualY(input,'$')) {
-        $line=109;
+        $line=103;
         $result="";
         if (true) break $try;
       }
       else {
-        $line=111;
+        $line=105;
         if ($opEqualY(input,':')) {
-          $line=111;
+          $line=105;
           $result=':';
           if (true) break $try;
         }
       }
-      $line=115;
+      $line=109;
       if (($opEqualY(input,sigma)&&!$opEqualY(alpha,"null"))) {
-        $line=115;
+        $line=109;
         $result=alpha;
         if (true) break $try;
       }
-      $line=117;
+      $line=111;
       if (($opEqualY(input,alpha)&&!$opEqualY(sigma,"null"))) {
-        $line=117;
+        $line=111;
         $result=sigma;
         if (true) break $try;
       }
-      $line=120;
+      $line=114;
       if ($opEqualY(input,'$')) {
-        $line=120;
+        $line=114;
         $result=replacements;
         if (true) break $try;
       }
-      $line=122;
+      $line=116;
       if ($opEqualY(anterior,input)) {
-        $line=122;
+        $line=116;
         $result='#';
         if (true) break $try;
       }
-      $line=126;
-      $result=input;
-      if (true) break $try;
-      $line=127;
+      $line=121;
       $rethrow(new RuntimeException("The function \"h(\u27E8sigma,alpha,anterior,indice,replacements\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -265,10 +256,10 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=133;
+      $line=127;
       $result="";
       if (true) break $try;
-      $line=134;
+      $line=128;
       $rethrow(new RuntimeException("The function \"g(s:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
