@@ -365,4 +365,163 @@ public final class project2 {
     }
     return $result;
   }
+  public static ITransducer createDecoder() {
+    int $line=0;
+    Object $result=null;
+    $try:try {
+      $line=168;
+      Object sigma=$fix($opUnionY($opIntvlY('a','z'),GCollections.asSet("null")));
+      $line=169;
+      Object mod3=$fix(GCollections.asSet(0,1,2));
+      $line=170;
+      Object mod5=$fix(GCollections.asSet(0,1,2,3,4));
+      $line=173;
+      Object Q=$fix($opCartsY(new Object[]{sigma,sigma,sigma,mod3,mod5}));
+      $line=174;
+      Object estados=$fix($opUnionY(Q,GCollections.asSet("fin")));
+      $line=176;
+      Object \u03A3=$fix($opUnionY($opUnionY($opUnionY($opIntvlY('a','z'),GCollections.asSet(':','#')),GCollections.asSet('0','1','2','3','4')),$opIntvlY('A','Z')));
+      $line=177;
+      Object \u03A3_=$fix($opUnionY($opIntvlY('a','z'),GCollections.asSet(':','$')));
+      $line=178;
+      Object q_0=$fix(GCollections.asList("null","null","null",1,0));
+      $line=179;
+      Object F=$fix(GCollections.asSet("fin"));
+      $line=181;
+      $result=$invokeConstructor(GDeterministicTransducer.class,new Object[]{estados,\u03A3,\u03A3_,q_0,F,new GMethod(project2.class,"\u03B41"),new GMethod(project2.class,"g"),h1});
+      if (true) break $try;
+      $line=182;
+      $rethrow(new RuntimeException("The function \"createDecoder()\" did not return a value."));
+    }
+    catch (Throwable $throwable) {
+      $rethrow($throwable,project2.class,"createDecoder",$line);
+    }
+    return $cast(ITransducer.class,$result);
+  }
+  public static Object \u03B41(java.lang.Iterable $v5, Object input) {
+    int $line=0;
+    Object $result=null;
+    $try:try {
+      java.util.Iterator $v6=GCollections.unmodifiableCollection($v5).iterator();
+      Object sigma=$v6.next();
+      Object alpha=$v6.next();
+      Object anterior=$v6.next();
+      Object indice=$v6.next();
+      Object replacements=$v6.next();
+      $line=188;
+      Object nuevoReplacements=$fix(replacements);
+      $line=189;
+      if ($opMembrY(input,GCollections.asSet(sigma,alpha))) {
+        $line=189;
+        nuevoReplacements=$fix($opModulY($opAdditY(nuevoReplacements,1),5));
+      }
+      $line=194;
+      if ($opEqualY(input,':')) {
+        $line=194;
+        $result=GCollections.asList(sigma,alpha,anterior,indice,replacements);
+        if (true) break $try;
+      }
+      else {
+        $line=196;
+        if ($opMembrY(input,GCollections.asSet('0','1','2','3','4'))) {
+          $line=196;
+          $result="fin";
+          if (true) break $try;
+        }
+      }
+      $line=203;
+      if ($opEqualY(sigma,"null")) {
+        $line=203;
+        $result=GCollections.asList(input,"null","null",1,0);
+        if (true) break $try;
+      }
+      else {
+        $line=206;
+        if (($opMembrY(sigma,$opIntvlY('a','z'))&&$opEqualY(alpha,"null"))) {
+          $line=206;
+          $result=GCollections.asList(sigma,input,"null",1,0);
+          if (true) break $try;
+        }
+      }
+      $line=212;
+      if ($opMembrY(input,GCollections.asSet(sigma,alpha))) {
+        $line=214;
+        if ($opEqualY(input,sigma)) {
+          $line=214;
+          $result=GCollections.asList(sigma,alpha,alpha,$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+          if (true) break $try;
+        }
+        else {
+          $line=216;
+          if ($opEqualY(input,alpha)) {
+            $line=216;
+            $result=GCollections.asList(sigma,alpha,sigma,$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+            if (true) break $try;
+          }
+        }
+      }
+      $line=224;
+      if ($opEqualY(input,'#')) {
+        $line=224;
+        $result=GCollections.asList(sigma,alpha,anterior,$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+        if (true) break $try;
+      }
+      $line=228;
+      if (($opGreaqY($opSubtrY(input,0),65)&&$opLessqY($opSubtrY(input,0),90))) {
+        $line=230;
+        if ($opEqualY(indice,1)) {
+          $line=230;
+          $result=GCollections.asList(sigma,alpha,project2.minusculaAnterior(input),$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+          if (true) break $try;
+        }
+        else {
+          $line=232;
+          if ($opEqualY(indice,1)) {
+            $line=232;
+            $result=GCollections.asList(sigma,alpha,project2.mismaMinuscula(input),$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+            if (true) break $try;
+          }
+        }
+      }
+      $line=238;
+      $result=GCollections.asList(sigma,alpha,anterior,indice,replacements);
+      if (true) break $try;
+      $line=239;
+      $rethrow(new RuntimeException("The function \"\u03B41(\u27E8sigma,alpha,anterior,indice,replacements\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
+    }
+    catch (Throwable $throwable) {
+      $rethrow($throwable,project2.class,"\u03B41",$line);
+    }
+    return $result;
+  }
+  public static Object minusculaAnterior(Object input) {
+    int $line=0;
+    Object $result=null;
+    $try:try {
+      $line=245;
+      $result=input;
+      if (true) break $try;
+      $line=246;
+      $rethrow(new RuntimeException("The function \"minusculaAnterior(input:Object)\" did not return a value."));
+    }
+    catch (Throwable $throwable) {
+      $rethrow($throwable,project2.class,"minusculaAnterior",$line);
+    }
+    return $result;
+  }
+  public static Object mismaMinuscula(Object input) {
+    int $line=0;
+    Object $result=null;
+    $try:try {
+      $line=249;
+      $result=input;
+      if (true) break $try;
+      $line=250;
+      $rethrow(new RuntimeException("The function \"mismaMinuscula(input:Object)\" did not return a value."));
+    }
+    catch (Throwable $throwable) {
+      $rethrow($throwable,project2.class,"mismaMinuscula",$line);
+    }
+    return $result;
+  }
 }

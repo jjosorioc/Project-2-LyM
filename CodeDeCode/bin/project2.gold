@@ -162,3 +162,90 @@ end
 /*
  * ####################################################### DECODER #######################################################
  */
+ 
+ 
+ function createDecoder():ITransducer begin
+	sigma := ('a'‥'z')∪{"null"}
+	mod3 := {0,1,2}
+	mod5 := {0,1,2,3,4}
+	// Sigma, Alpha, anterior, indice modulo 3, replacements mod 5
+	
+	Q:= sigma × sigma × sigma×mod3 ×mod5
+	estados := Q ∪{"fin"}
+	
+	Σ :=('a'‥'z')∪{':','#'}∪{'0', '1', '2', '3', '4'}∪('A'‥'Z') // Chars input
+	Σ´:= ('a'‥'z')∪{':', '$'} // Chars output
+	q₀:= ⟨"null", "null", "null", 1, 0⟩
+	F:=	 {"fin"} //estados finales
+
+	return 	GDeterministicTransducer(estados,Σ,Σ´,q₀,F,δ1,g,h1) //TODO: Output function
+end
+ 
+ 
+ function δ1(⟨sigma, alpha, anterior, indice, replacements⟩,input) begin
+ 	
+ 	// Para aumentar los replacements
+	nuevoReplacements := replacements
+	if input ∈{sigma, alpha} then nuevoReplacements := (nuevoReplacements +1) % 5
+	end
+ 	
+ 	
+ 	// Si el input == : o si es un num => Estado final
+ 	if input = ':' then return ⟨sigma, alpha, anterior, indice, replacements⟩
+ 		
+ 	elseif input∈{'0', '1', '2', '3', '4'} then return "fin"
+ 		
+ 	end
+ 	
+ 	
+ 	// Read Sigma and alpha
+ 	// se selecciona sigma
+	if sigma="null" then return ⟨input, "null", "null", 1, 0⟩
+   	
+   	// se selecciona alpha
+   	elseif sigma∈('a'‥'z') and alpha="null" then return ⟨sigma, input, "null", 1, 0⟩
+   	
+   	end	
+   	
+   	
+   	// If input = sigma or alpha
+   	if input ∈{sigma, alpha} then
+   		
+   		if input = sigma then return ⟨sigma, alpha, alpha, (indice + 1) % 3, nuevoReplacements⟩
+   			
+   		elseif input = alpha then return ⟨sigma, alpha, sigma, (indice + 1) % 3, nuevoReplacements⟩
+   			
+   		end
+   		
+   	end
+   	
+   	
+   	// If input = #
+   	if input = '#' then return ⟨sigma, alpha, anterior, (indice + 1) % 3, nuevoReplacements⟩ end
+ 	
+ 	
+ 	// If input is in uppercase
+ 	if input - 0 >= 65 and input - 0 <= 90 then
+ 		
+ 		if indice = 1 then return ⟨sigma, alpha, minusculaAnterior(input), (indice + 1) % 3, nuevoReplacements⟩
+ 			
+ 		elseif indice = 1 then return ⟨sigma, alpha, mismaMinuscula(input), (indice + 1) % 3, nuevoReplacements⟩
+
+ 		end
+ 	end
+ 	
+ 	
+ 	return ⟨sigma, alpha, anterior, indice, replacements⟩
+ end
+ 
+ 
+ // Funciones para los inputs en mayúscula
+ 
+ function minusculaAnterior(input) begin
+ 	return input
+ end
+ 
+ function mismaMinuscula(input) begin
+ 	return input
+ end
+ 
