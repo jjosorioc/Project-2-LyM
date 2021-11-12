@@ -241,11 +241,22 @@ end
  
  // Funciones para los inputs en mayúscula
  
- function minusculaAnterior(input) begin
- 	return input
+ function minusculaMisma(input) begin
+ 	newSymbol = input-0
+ 	newSymbol = newSymbol + 32
+ 	toCharResult: char[]:= Character.toChars(newSymbol)
+	return toCharResult[0]
  end
+ 	
  
- function mismaMinuscula(input) begin
- 	return input
+ function minusculaAnterior(input) begin
+ 	if input = 'A' then
+ 		return 'z'
+ 	else
+	  	newSymbol = input-0
+	 	newSymbol = newSymbol + 31
+	 	toCharResult: char[]:= Character.toChars(newSymbol)
+		return toCharResult[0]	
+ 	end
  end
  

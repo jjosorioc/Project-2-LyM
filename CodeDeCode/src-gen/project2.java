@@ -478,7 +478,7 @@ public final class project2 {
           $line=232;
           if ($opEqualY(indice,1)) {
             $line=232;
-            $result=GCollections.asList(sigma,alpha,project2.mismaMinuscula(input),$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+            $result=GCollections.asList(sigma,alpha,$invokeMethod(project2.class,"mismaMinuscula",true,null,new Object[]{input}),$opModulY($opAdditY(indice,1),3),nuevoReplacements);
             if (true) break $try;
           }
         }
@@ -494,33 +494,53 @@ public final class project2 {
     }
     return $result;
   }
-  public static Object minusculaAnterior(Object input) {
+  public static Object minusculaMisma(Object input) {
     int $line=0;
     Object $result=null;
     $try:try {
       $line=245;
-      $result=input;
-      if (true) break $try;
+      Object newSymbol=$fix($opSubtrY(input,0));
       $line=246;
+      newSymbol=$fix($opAdditY(newSymbol,32));
+      $line=247;
+      char[] toCharResult=$cast(char[].class,$fix(Character.toChars($int(newSymbol))));
+      $line=248;
+      $result=((char[])toCharResult)[$int(0)];
+      if (true) break $try;
+      $line=249;
+      $rethrow(new RuntimeException("The function \"minusculaMisma(input:Object)\" did not return a value."));
+    }
+    catch (Throwable $throwable) {
+      $rethrow($throwable,project2.class,"minusculaMisma",$line);
+    }
+    return $result;
+  }
+  public static Object minusculaAnterior(Object input) {
+    int $line=0;
+    Object $result=null;
+    $try:try {
+      $line=253;
+      if ($opEqualY(input,'A')) {
+        $line=254;
+        $result='z';
+        if (true) break $try;
+      }
+      else {
+        $line=256;
+        Object newSymbol=$fix($opSubtrY(input,0));
+        $line=257;
+        newSymbol=$fix($opAdditY(newSymbol,31));
+        $line=258;
+        char[] toCharResult=$cast(char[].class,$fix(Character.toChars($int(newSymbol))));
+        $line=259;
+        $result=((char[])toCharResult)[$int(0)];
+        if (true) break $try;
+      }
+      $line=261;
       $rethrow(new RuntimeException("The function \"minusculaAnterior(input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
       $rethrow($throwable,project2.class,"minusculaAnterior",$line);
-    }
-    return $result;
-  }
-  public static Object mismaMinuscula(Object input) {
-    int $line=0;
-    Object $result=null;
-    $try:try {
-      $line=249;
-      $result=input;
-      if (true) break $try;
-      $line=250;
-      $rethrow(new RuntimeException("The function \"mismaMinuscula(input:Object)\" did not return a value."));
-    }
-    catch (Throwable $throwable) {
-      $rethrow($throwable,project2.class,"mismaMinuscula",$line);
     }
     return $result;
   }
