@@ -15,14 +15,14 @@ using gold.**
 procedure main(args:String[]) begin
 	var sc:java.util.Scanner(System.$in)
 	coder:=createCoder()
-   	//deCoder:=createDecoder()
+   	deCoder:=createDecoder()
     
     //GAutomataFrame.show(coder)
    //GAutomataFrame.show(deCoder)
    
   	
-	
-  	Utilities.test(coder)
+	Utilities.test(deCoder)
+  	//Utilities.testCodeDecode(coder, deCoder)
 		
 end
 
@@ -170,7 +170,7 @@ end
 	mod5 := {0,1,2,3,4}
 	// Sigma, Alpha, anterior, indice modulo 3, replacements mod 5
 	
-	Q:= sigma × sigma × sigma×mod3 ×mod5
+	Q:= sigma × sigma × sigma×mod3 ×mod5 //TODO borrar last state
 	estados := Q ∪{"fin"}
 	
 	Σ :=('a'‥'z')∪{':','#'}∪{'0', '1', '2', '3', '4'}∪('A'‥'Z') // Chars input
@@ -180,7 +180,10 @@ end
 
 	return 	GDeterministicTransducer(estados,Σ,Σ´,q₀,F,δ1,g,h1) //TODO: Output function
 end
- 
+
+function δ1(estado, input) begin
+	return "fin"
+end
  
  function δ1(⟨sigma, alpha, anterior, indice, replacements⟩,input) begin
  	
@@ -197,15 +200,16 @@ end
  		
  	end
  	
+ 	// If input = #
+   	if input = '#' then return ⟨sigma, alpha, anterior, (indice + 1) % 3, nuevoReplacements⟩ end
+ 	
  	
  	// Read Sigma and alpha
  	// se selecciona sigma
-	if sigma="null" then return ⟨input, "null", "null", 1, 0⟩
+	if sigma="null" and alpha="null" and anterior="null" and input∈('a'‥'z') then return ⟨input, "null", "null", 1, 0⟩ end
    	
    	// se selecciona alpha
-   	elseif sigma∈('a'‥'z') and alpha="null" then return ⟨sigma, input, "null", 1, 0⟩
-   	
-   	end	
+   	if sigma∈('a'‥'z') and alpha="null" and anterior="null" and input∈('a'‥'z') then return ⟨sigma, input, "null", 1, 0⟩ end	
    	
    	
    	// If input = sigma or alpha
@@ -219,17 +223,16 @@ end
    		
    	end
    	
-   	
-   	// If input = #
-   	if input = '#' then return ⟨sigma, alpha, anterior, (indice + 1) % 3, nuevoReplacements⟩ end
  	
  	
  	// If input is in uppercase
- 	if input - 0 >= 65 and input - 0 <= 90 then
+ 	if input - 0 >= 65 and input - 0 <= 90 and sigma ≠"null" and alpha ≠"null" then
  		
  		if indice = 1 then return ⟨sigma, alpha, minusculaAnterior(input), (indice + 1) % 3, nuevoReplacements⟩
  			
- 		elseif indice = 1 then return ⟨sigma, alpha, mismaMinuscula(input), (indice + 1) % 3, nuevoReplacements⟩
+ 		elseif indice = 1 then return ⟨sigma, alpha, minusculaMisma(input), (indice + 1) % 3, nuevoReplacements⟩
+ 		
+ 		else return ⟨sigma, alpha, anterior, indice, replacements⟩
 
  		end
  	end
@@ -237,6 +240,51 @@ end
  	
  	return ⟨sigma, alpha, anterior, indice, replacements⟩
  end
+ 
+
+function h1(estado, input) begin
+	return λ
+end
+
+
+function h1(⟨sigma, alpha, anterior, indice, replacements⟩,input) begin
+	
+	if input∈('0'‥'4') then return '$' end
+		
+	if input='#' then return anterior 
+	
+	elseif input=':' then return input
+	
+	end
+	
+	if sigma="null" and alpha="null" then return input
+		
+	elseif sigma≠"null" and alpha="null" then return input
+		
+	end
+	
+	if input = sigma then return alpha
+		
+	elseif input = alpha then return sigma
+		
+	end
+	
+	// If input is in uppercase
+ 	if input - 0 >= 65 and input - 0 <= 90 and sigma ≠"null" and alpha ≠"null" then
+ 		
+ 		if indice = 1 then return minusculaAnterior(input)
+ 			
+ 		elseif indice = 1 then return minusculaMisma(input)
+ 		
+ 		else return λ
+
+ 		end
+ 	end
+	
+	
+	return anterior //TODO: no puede retornar uppercase
+end
+
  
  
  // Funciones para los inputs en mayúscula

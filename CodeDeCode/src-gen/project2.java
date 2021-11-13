@@ -58,8 +58,10 @@ public final class project2 {
       sc=$invokeConstructor(java.util.Scanner.class,new Object[]{$invokeField(System.class,"in",true,null)});
       $line=17;
       Object coder=$fix(project2.createCoder());
-      $line=25;
-      Utilities.test($cast(gold.structures.automaton.IAutomaton.class,coder));
+      $line=18;
+      Object deCoder=$fix(project2.createDecoder());
+      $line=24;
+      Utilities.test($cast(gold.structures.automaton.IAutomaton.class,deCoder));
     }
     catch (Throwable $throwable) {
       $rethrow($throwable,project2.class,"main",$line);
@@ -388,7 +390,7 @@ public final class project2 {
       $line=179;
       Object F=$fix(GCollections.asSet("fin"));
       $line=181;
-      $result=$invokeConstructor(GDeterministicTransducer.class,new Object[]{estados,\u03A3,\u03A3_,q_0,F,new GMethod(project2.class,"\u03B41"),new GMethod(project2.class,"g"),h1});
+      $result=$invokeConstructor(GDeterministicTransducer.class,new Object[]{estados,\u03A3,\u03A3_,q_0,F,new GMethod(project2.class,"\u03B41"),new GMethod(project2.class,"g"),new GMethod(project2.class,"h1")});
       if (true) break $try;
       $line=182;
       $rethrow(new RuntimeException("The function \"createDecoder()\" did not return a value."));
@@ -397,6 +399,21 @@ public final class project2 {
       $rethrow($throwable,project2.class,"createDecoder",$line);
     }
     return $cast(ITransducer.class,$result);
+  }
+  public static Object \u03B41(Object estado, Object input) {
+    int $line=0;
+    Object $result=null;
+    $try:try {
+      $line=185;
+      $result="fin";
+      if (true) break $try;
+      $line=186;
+      $rethrow(new RuntimeException("The function \"\u03B41(estado:Object,input:Object)\" did not return a value."));
+    }
+    catch (Throwable $throwable) {
+      $rethrow($throwable,project2.class,"\u03B41",$line);
+    }
+    return $result;
   }
   public static Object \u03B41(java.lang.Iterable $v5, Object input) {
     int $line=0;
@@ -408,85 +425,88 @@ public final class project2 {
       Object anterior=$v6.next();
       Object indice=$v6.next();
       Object replacements=$v6.next();
-      $line=188;
+      $line=191;
       Object nuevoReplacements=$fix(replacements);
-      $line=189;
+      $line=192;
       if ($opMembrY(input,GCollections.asSet(sigma,alpha))) {
-        $line=189;
+        $line=192;
         nuevoReplacements=$fix($opModulY($opAdditY(nuevoReplacements,1),5));
       }
-      $line=194;
+      $line=197;
       if ($opEqualY(input,':')) {
-        $line=194;
+        $line=197;
         $result=GCollections.asList(sigma,alpha,anterior,indice,replacements);
         if (true) break $try;
       }
       else {
-        $line=196;
+        $line=199;
         if ($opMembrY(input,GCollections.asSet('0','1','2','3','4'))) {
-          $line=196;
+          $line=199;
           $result="fin";
           if (true) break $try;
         }
       }
-      $line=203;
-      if ($opEqualY(sigma,"null")) {
-        $line=203;
+      $line=204;
+      if ($opEqualY(input,'#')) {
+        $line=204;
+        $result=GCollections.asList(sigma,alpha,anterior,$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+        if (true) break $try;
+      }
+      $line=209;
+      if (((($opEqualY(sigma,"null")&&$opEqualY(alpha,"null"))&&$opEqualY(anterior,"null"))&&$opMembrY(input,$opIntvlY('a','z')))) {
+        $line=209;
         $result=GCollections.asList(input,"null","null",1,0);
         if (true) break $try;
       }
-      else {
-        $line=206;
-        if (($opMembrY(sigma,$opIntvlY('a','z'))&&$opEqualY(alpha,"null"))) {
-          $line=206;
-          $result=GCollections.asList(sigma,input,"null",1,0);
-          if (true) break $try;
-        }
-      }
       $line=212;
+      if (((($opMembrY(sigma,$opIntvlY('a','z'))&&$opEqualY(alpha,"null"))&&$opEqualY(anterior,"null"))&&$opMembrY(input,$opIntvlY('a','z')))) {
+        $line=212;
+        $result=GCollections.asList(sigma,input,"null",1,0);
+        if (true) break $try;
+      }
+      $line=216;
       if ($opMembrY(input,GCollections.asSet(sigma,alpha))) {
-        $line=214;
+        $line=218;
         if ($opEqualY(input,sigma)) {
-          $line=214;
+          $line=218;
           $result=GCollections.asList(sigma,alpha,alpha,$opModulY($opAdditY(indice,1),3),nuevoReplacements);
           if (true) break $try;
         }
         else {
-          $line=216;
+          $line=220;
           if ($opEqualY(input,alpha)) {
-            $line=216;
+            $line=220;
             $result=GCollections.asList(sigma,alpha,sigma,$opModulY($opAdditY(indice,1),3),nuevoReplacements);
             if (true) break $try;
           }
         }
       }
-      $line=224;
-      if ($opEqualY(input,'#')) {
-        $line=224;
-        $result=GCollections.asList(sigma,alpha,anterior,$opModulY($opAdditY(indice,1),3),nuevoReplacements);
-        if (true) break $try;
-      }
-      $line=228;
-      if (($opGreaqY($opSubtrY(input,0),65)&&$opLessqY($opSubtrY(input,0),90))) {
-        $line=230;
+      $line=229;
+      if (((($opGreaqY($opSubtrY(input,0),65)&&$opLessqY($opSubtrY(input,0),90))&&!$opEqualY(sigma,"null"))&&!$opEqualY(alpha,"null"))) {
+        $line=231;
         if ($opEqualY(indice,1)) {
-          $line=230;
+          $line=231;
           $result=GCollections.asList(sigma,alpha,project2.minusculaAnterior(input),$opModulY($opAdditY(indice,1),3),nuevoReplacements);
           if (true) break $try;
         }
         else {
-          $line=232;
+          $line=233;
           if ($opEqualY(indice,1)) {
-            $line=232;
-            $result=GCollections.asList(sigma,alpha,$invokeMethod(project2.class,"mismaMinuscula",true,null,new Object[]{input}),$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+            $line=233;
+            $result=GCollections.asList(sigma,alpha,project2.minusculaMisma(input),$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+            if (true) break $try;
+          }
+          else {
+            $line=235;
+            $result=GCollections.asList(sigma,alpha,anterior,indice,replacements);
             if (true) break $try;
           }
         }
       }
-      $line=238;
+      $line=241;
       $result=GCollections.asList(sigma,alpha,anterior,indice,replacements);
       if (true) break $try;
-      $line=239;
+      $line=242;
       $rethrow(new RuntimeException("The function \"\u03B41(\u27E8sigma,alpha,anterior,indice,replacements\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -494,20 +514,126 @@ public final class project2 {
     }
     return $result;
   }
+  public static Object h1(Object estado, Object input) {
+    int $line=0;
+    Object $result=null;
+    $try:try {
+      $line=246;
+      $result="";
+      if (true) break $try;
+      $line=247;
+      $rethrow(new RuntimeException("The function \"h1(estado:Object,input:Object)\" did not return a value."));
+    }
+    catch (Throwable $throwable) {
+      $rethrow($throwable,project2.class,"h1",$line);
+    }
+    return $result;
+  }
+  public static Object h1(java.lang.Iterable $v7, Object input) {
+    int $line=0;
+    Object $result=null;
+    $try:try {
+      java.util.Iterator $v8=GCollections.unmodifiableCollection($v7).iterator();
+      Object sigma=$v8.next();
+      Object alpha=$v8.next();
+      Object anterior=$v8.next();
+      Object indice=$v8.next();
+      Object replacements=$v8.next();
+      $line=252;
+      if ($opMembrY(input,$opIntvlY('0','4'))) {
+        $line=252;
+        $result='$';
+        if (true) break $try;
+      }
+      $line=254;
+      if ($opEqualY(input,'#')) {
+        $line=254;
+        $result=anterior;
+        if (true) break $try;
+      }
+      else {
+        $line=256;
+        if ($opEqualY(input,':')) {
+          $line=256;
+          $result=input;
+          if (true) break $try;
+        }
+      }
+      $line=260;
+      if (($opEqualY(sigma,"null")&&$opEqualY(alpha,"null"))) {
+        $line=260;
+        $result=input;
+        if (true) break $try;
+      }
+      else {
+        $line=262;
+        if ((!$opEqualY(sigma,"null")&&$opEqualY(alpha,"null"))) {
+          $line=262;
+          $result=input;
+          if (true) break $try;
+        }
+      }
+      $line=266;
+      if ($opEqualY(input,sigma)) {
+        $line=266;
+        $result=alpha;
+        if (true) break $try;
+      }
+      else {
+        $line=268;
+        if ($opEqualY(input,alpha)) {
+          $line=268;
+          $result=sigma;
+          if (true) break $try;
+        }
+      }
+      $line=273;
+      if (((($opGreaqY($opSubtrY(input,0),65)&&$opLessqY($opSubtrY(input,0),90))&&!$opEqualY(sigma,"null"))&&!$opEqualY(alpha,"null"))) {
+        $line=275;
+        if ($opEqualY(indice,1)) {
+          $line=275;
+          $result=project2.minusculaAnterior(input);
+          if (true) break $try;
+        }
+        else {
+          $line=277;
+          if ($opEqualY(indice,1)) {
+            $line=277;
+            $result=project2.minusculaMisma(input);
+            if (true) break $try;
+          }
+          else {
+            $line=279;
+            $result="";
+            if (true) break $try;
+          }
+        }
+      }
+      $line=285;
+      $result=anterior;
+      if (true) break $try;
+      $line=286;
+      $rethrow(new RuntimeException("The function \"h1(\u27E8sigma,alpha,anterior,indice,replacements\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
+    }
+    catch (Throwable $throwable) {
+      $rethrow($throwable,project2.class,"h1",$line);
+    }
+    return $result;
+  }
   public static Object minusculaMisma(Object input) {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=245;
+      $line=293;
       Object newSymbol=$fix($opSubtrY(input,0));
-      $line=246;
+      $line=294;
       newSymbol=$fix($opAdditY(newSymbol,32));
-      $line=247;
+      $line=295;
       char[] toCharResult=$cast(char[].class,$fix(Character.toChars($int(newSymbol))));
-      $line=248;
+      $line=296;
       $result=((char[])toCharResult)[$int(0)];
       if (true) break $try;
-      $line=249;
+      $line=297;
       $rethrow(new RuntimeException("The function \"minusculaMisma(input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -519,24 +645,24 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=253;
+      $line=301;
       if ($opEqualY(input,'A')) {
-        $line=254;
+        $line=302;
         $result='z';
         if (true) break $try;
       }
       else {
-        $line=256;
+        $line=304;
         Object newSymbol=$fix($opSubtrY(input,0));
-        $line=257;
+        $line=305;
         newSymbol=$fix($opAdditY(newSymbol,31));
-        $line=258;
+        $line=306;
         char[] toCharResult=$cast(char[].class,$fix(Character.toChars($int(newSymbol))));
-        $line=259;
+        $line=307;
         $result=((char[])toCharResult)[$int(0)];
         if (true) break $try;
       }
-      $line=261;
+      $line=309;
       $rethrow(new RuntimeException("The function \"minusculaAnterior(input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {

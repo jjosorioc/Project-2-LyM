@@ -34,9 +34,9 @@ procedure main(args:String[]) begin
     //GAutomataFrame.show(coder)
    //GAutomataFrame.show(deCoder)
    
-  	
+  	print 'A' - 0
 	
-  	Utilities.testCodeDecode(coder,deCoder)
+  	//Utilities.testCodeDecode(coder,deCoder)
 		
 end
 

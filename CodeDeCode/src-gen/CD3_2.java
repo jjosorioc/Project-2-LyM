@@ -66,8 +66,8 @@ public final class CD3_2 {
       Object coder=$fix(CD3_2.createCoder());
       $line=32;
       Object deCoder=$fix(CD3_2.createDecoder());
-      $line=39;
-      Utilities.testCodeDecode($cast(gold.structures.automaton.ITransducer.class,coder),$cast(gold.structures.automaton.ITransducer.class,deCoder));
+      $line=37;
+      System.out.println($message(new Object[]{$opSubtrY('A',0)}));
     }
     catch (Throwable $throwable) {
       $rethrow($throwable,CD3_2.class,"main",$line);
