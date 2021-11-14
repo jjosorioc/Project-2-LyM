@@ -56,8 +56,6 @@ public final class project2 {
       $line=16;
       java.util.Scanner sc=null;
       sc=$invokeConstructor(java.util.Scanner.class,new Object[]{$invokeField(System.class,"in",true,null)});
-      $line=17;
-      Object coder=$fix(project2.createCoder());
       $line=18;
       Object deCoder=$fix(project2.createDecoder());
       $line=24;
@@ -378,7 +376,7 @@ public final class project2 {
       $line=170;
       Object mod5=$fix(GCollections.asSet(0,1,2,3,4));
       $line=173;
-      Object Q=$fix($opCartsY(new Object[]{sigma,sigma,sigma,mod3,mod5}));
+      Object Q=$fix($opCartsY(new Object[]{sigma,sigma,sigma,mod3}));
       $line=174;
       Object estados=$fix($opUnionY(Q,GCollections.asSet("fin")));
       $line=176;
@@ -386,7 +384,7 @@ public final class project2 {
       $line=177;
       Object \u03A3_=$fix($opUnionY($opIntvlY('a','z'),GCollections.asSet(':','$')));
       $line=178;
-      Object q_0=$fix(GCollections.asList("null","null","null",1,0));
+      Object q_0=$fix(GCollections.asList("null","null","null",1));
       $line=179;
       Object F=$fix(GCollections.asSet("fin"));
       $line=181;
@@ -424,90 +422,82 @@ public final class project2 {
       Object alpha=$v6.next();
       Object anterior=$v6.next();
       Object indice=$v6.next();
-      Object replacements=$v6.next();
-      $line=191;
-      Object nuevoReplacements=$fix(replacements);
       $line=192;
-      if ($opMembrY(input,GCollections.asSet(sigma,alpha))) {
-        $line=192;
-        nuevoReplacements=$fix($opModulY($opAdditY(nuevoReplacements,1),5));
-      }
-      $line=197;
       if ($opEqualY(input,':')) {
-        $line=197;
-        $result=GCollections.asList(sigma,alpha,anterior,indice,replacements);
+        $line=192;
+        $result=GCollections.asList(sigma,alpha,anterior,indice);
         if (true) break $try;
       }
       else {
-        $line=199;
+        $line=194;
         if ($opMembrY(input,GCollections.asSet('0','1','2','3','4'))) {
-          $line=199;
+          $line=194;
           $result="fin";
           if (true) break $try;
         }
       }
-      $line=204;
+      $line=199;
       if ($opEqualY(input,'#')) {
-        $line=204;
-        $result=GCollections.asList(sigma,alpha,anterior,$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+        $line=199;
+        $result=GCollections.asList(sigma,alpha,anterior,$opModulY($opAdditY(indice,1),3));
         if (true) break $try;
       }
-      $line=209;
+      $line=204;
       if (((($opEqualY(sigma,"null")&&$opEqualY(alpha,"null"))&&$opEqualY(anterior,"null"))&&$opMembrY(input,$opIntvlY('a','z')))) {
-        $line=209;
-        $result=GCollections.asList(input,"null","null",1,0);
+        $line=204;
+        $result=GCollections.asList(input,"null","null",1);
         if (true) break $try;
       }
-      $line=212;
+      $line=207;
       if (((($opMembrY(sigma,$opIntvlY('a','z'))&&$opEqualY(alpha,"null"))&&$opEqualY(anterior,"null"))&&$opMembrY(input,$opIntvlY('a','z')))) {
-        $line=212;
-        $result=GCollections.asList(sigma,input,"null",1,0);
+        $line=207;
+        $result=GCollections.asList(sigma,input,"null",1);
         if (true) break $try;
       }
-      $line=216;
+      $line=211;
       if ($opMembrY(input,GCollections.asSet(sigma,alpha))) {
-        $line=218;
+        $line=213;
         if ($opEqualY(input,sigma)) {
-          $line=218;
-          $result=GCollections.asList(sigma,alpha,alpha,$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+          $line=213;
+          $result=GCollections.asList(sigma,alpha,alpha,$opModulY($opAdditY(indice,1),3));
           if (true) break $try;
         }
         else {
-          $line=220;
+          $line=215;
           if ($opEqualY(input,alpha)) {
-            $line=220;
-            $result=GCollections.asList(sigma,alpha,sigma,$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+            $line=215;
+            $result=GCollections.asList(sigma,alpha,sigma,$opModulY($opAdditY(indice,1),3));
             if (true) break $try;
           }
         }
       }
-      $line=229;
+      $line=224;
       if (((($opGreaqY($opSubtrY(input,0),65)&&$opLessqY($opSubtrY(input,0),90))&&!$opEqualY(sigma,"null"))&&!$opEqualY(alpha,"null"))) {
-        $line=231;
+        $line=226;
         if ($opEqualY(indice,1)) {
-          $line=231;
-          $result=GCollections.asList(sigma,alpha,project2.minusculaAnterior(input),$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+          $line=226;
+          $result=GCollections.asList(sigma,alpha,project2.minusculaAnterior(input),$opModulY($opAdditY(indice,1),3));
           if (true) break $try;
         }
         else {
-          $line=233;
+          $line=228;
           if ($opEqualY(indice,1)) {
-            $line=233;
-            $result=GCollections.asList(sigma,alpha,project2.minusculaMisma(input),$opModulY($opAdditY(indice,1),3),nuevoReplacements);
+            $line=228;
+            $result=GCollections.asList(sigma,alpha,project2.minusculaMisma(input),$opModulY($opAdditY(indice,1),3));
             if (true) break $try;
           }
           else {
-            $line=235;
-            $result=GCollections.asList(sigma,alpha,anterior,indice,replacements);
+            $line=230;
+            $result=GCollections.asList(sigma,alpha,anterior,indice);
             if (true) break $try;
           }
         }
       }
-      $line=241;
-      $result=GCollections.asList(sigma,alpha,anterior,indice,replacements);
+      $line=236;
+      $result=GCollections.asList(sigma,alpha,anterior,indice);
       if (true) break $try;
-      $line=242;
-      $rethrow(new RuntimeException("The function \"\u03B41(\u27E8sigma,alpha,anterior,indice,replacements\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
+      $line=237;
+      $rethrow(new RuntimeException("The function \"\u03B41(\u27E8sigma,alpha,anterior,indice\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
       $rethrow($throwable,project2.class,"\u03B41",$line);
@@ -518,10 +508,10 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=246;
+      $line=241;
       $result="";
       if (true) break $try;
-      $line=247;
+      $line=242;
       $rethrow(new RuntimeException("The function \"h1(estado:Object,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -538,82 +528,89 @@ public final class project2 {
       Object alpha=$v8.next();
       Object anterior=$v8.next();
       Object indice=$v8.next();
-      Object replacements=$v8.next();
-      $line=252;
+      $line=247;
       if ($opMembrY(input,$opIntvlY('0','4'))) {
-        $line=252;
+        $line=247;
         $result='$';
         if (true) break $try;
       }
-      $line=254;
+      $line=249;
       if ($opEqualY(input,'#')) {
-        $line=254;
+        $line=249;
         $result=anterior;
         if (true) break $try;
       }
       else {
-        $line=256;
+        $line=251;
         if ($opEqualY(input,':')) {
-          $line=256;
+          $line=251;
           $result=input;
           if (true) break $try;
         }
       }
-      $line=260;
-      if (($opEqualY(sigma,"null")&&$opEqualY(alpha,"null"))) {
-        $line=260;
-        $result=input;
-        if (true) break $try;
-      }
-      else {
-        $line=262;
-        if ((!$opEqualY(sigma,"null")&&$opEqualY(alpha,"null"))) {
-          $line=262;
-          $result=input;
-          if (true) break $try;
-        }
-      }
-      $line=266;
-      if ($opEqualY(input,sigma)) {
-        $line=266;
+      $line=257;
+      if (($opEqualY(input,sigma)&&!$opEqualY(alpha,"null"))) {
+        $line=257;
         $result=alpha;
         if (true) break $try;
       }
       else {
-        $line=268;
-        if ($opEqualY(input,alpha)) {
-          $line=268;
+        $line=259;
+        if (($opEqualY(input,alpha)&&!$opEqualY(sigma,"null"))) {
+          $line=259;
           $result=sigma;
           if (true) break $try;
         }
       }
-      $line=273;
+      $line=264;
       if (((($opGreaqY($opSubtrY(input,0),65)&&$opLessqY($opSubtrY(input,0),90))&&!$opEqualY(sigma,"null"))&&!$opEqualY(alpha,"null"))) {
-        $line=275;
+        $line=266;
         if ($opEqualY(indice,1)) {
-          $line=275;
+          $line=266;
           $result=project2.minusculaAnterior(input);
           if (true) break $try;
         }
         else {
-          $line=277;
-          if ($opEqualY(indice,1)) {
-            $line=277;
+          $line=268;
+          if ($opEqualY(indice,2)) {
+            $line=268;
             $result=project2.minusculaMisma(input);
             if (true) break $try;
           }
           else {
-            $line=279;
+            $line=270;
             $result="";
             if (true) break $try;
           }
         }
       }
-      $line=285;
-      $result=anterior;
+      else {
+        $line=274;
+        if (($opGreaqY($opSubtrY(input,0),65)&&$opLessqY($opSubtrY(input,0),90))) {
+          $line=274;
+          $result="";
+          if (true) break $try;
+        }
+      }
+      $line=277;
+      if (($opEqualY(sigma,"null")&&$opEqualY(alpha,"null"))) {
+        $line=277;
+        $result=input;
+        if (true) break $try;
+      }
+      else {
+        $line=279;
+        if ((!$opEqualY(sigma,"null")&&$opEqualY(alpha,"null"))) {
+          $line=279;
+          $result=input;
+          if (true) break $try;
+        }
+      }
+      $line=284;
+      $result=input;
       if (true) break $try;
-      $line=286;
-      $rethrow(new RuntimeException("The function \"h1(\u27E8sigma,alpha,anterior,indice,replacements\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
+      $line=285;
+      $rethrow(new RuntimeException("The function \"h1(\u27E8sigma,alpha,anterior,indice\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
       $rethrow($throwable,project2.class,"h1",$line);
@@ -624,16 +621,16 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=293;
+      $line=292;
       Object newSymbol=$fix($opSubtrY(input,0));
-      $line=294;
+      $line=293;
       newSymbol=$fix($opAdditY(newSymbol,32));
-      $line=295;
+      $line=294;
       char[] toCharResult=$cast(char[].class,$fix(Character.toChars($int(newSymbol))));
-      $line=296;
+      $line=295;
       $result=((char[])toCharResult)[$int(0)];
       if (true) break $try;
-      $line=297;
+      $line=296;
       $rethrow(new RuntimeException("The function \"minusculaMisma(input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -645,24 +642,24 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=301;
+      $line=300;
       if ($opEqualY(input,'A')) {
-        $line=302;
+        $line=301;
         $result='z';
         if (true) break $try;
       }
       else {
-        $line=304;
+        $line=303;
         Object newSymbol=$fix($opSubtrY(input,0));
-        $line=305;
+        $line=304;
         newSymbol=$fix($opAdditY(newSymbol,31));
-        $line=306;
+        $line=305;
         char[] toCharResult=$cast(char[].class,$fix(Character.toChars($int(newSymbol))));
-        $line=307;
+        $line=306;
         $result=((char[])toCharResult)[$int(0)];
         if (true) break $try;
       }
-      $line=309;
+      $line=308;
       $rethrow(new RuntimeException("The function \"minusculaAnterior(input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
