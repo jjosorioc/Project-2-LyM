@@ -14,15 +14,15 @@ using gold.**
 
 procedure main(args:String[]) begin
 	var sc:java.util.Scanner(System.$in)
-	//coder:=createCoder()
+	coder:=createCoder()
    	deCoder:=createDecoder()
     
     //GAutomataFrame.show(coder)
    //GAutomataFrame.show(deCoder)
    
   	
-	Utilities.test(deCoder)
-  	//Utilities.testCodeDecode(coder, deCoder)
+	//Utilities.test(deCoder)
+  	Utilities.testCodeDecode(coder, deCoder)
 		
 end
 
@@ -178,7 +178,7 @@ end
 	q₀:= ⟨"null", "null", "null", 1⟩
 	F:=	 {"fin"} //estados finales
 
-	return 	GDeterministicTransducer(estados,Σ,Σ´,q₀,F,δ1,g,h1) //TODO: Output function
+	return 	GDeterministicTransducer(estados,Σ,Σ´,q₀,F,δ1,g,h1)
 end
 
 function δ1(estado, input) begin
@@ -225,15 +225,19 @@ end
  		
  		if indice = 1 then return ⟨sigma, alpha, minusculaAnterior(input), (indice + 1) % 3⟩
  			
- 		elseif indice = 1 then return ⟨sigma, alpha, minusculaMisma(input), (indice + 1) % 3⟩
+ 		elseif indice = 2 then return ⟨sigma, alpha, minusculaMisma(input), (indice + 1) % 3⟩
  		
- 		else return ⟨sigma, alpha, anterior, indice⟩
 
  		end
  	end
  	
+ 	if input - 0 >= 65 and input - 0 <= 90 then
+ 		return ⟨sigma, alpha, anterior, indice⟩
+ 		end
+ 		
  	
- 	return ⟨sigma, alpha, anterior, indice⟩
+ 	
+ 	return ⟨sigma, alpha, input, (indice + 1) % 3⟩
  end
  
 
@@ -274,6 +278,8 @@ function h1(⟨sigma, alpha, anterior, indice⟩,input) begin
  	elseif input - 0 >= 65 and input - 0 <= 90 then return λ
  	end
  	
+ 	
+ 	// Sigma y alpha
  	if sigma="null" and alpha="null" then return input
 		
 	elseif sigma≠"null" and alpha="null" then return input
@@ -281,7 +287,7 @@ function h1(⟨sigma, alpha, anterior, indice⟩,input) begin
 	end
 	
 	
-	return input //TODO: no puede retornar uppercase
+	return input
 end
 
  

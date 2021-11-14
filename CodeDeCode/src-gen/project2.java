@@ -56,10 +56,12 @@ public final class project2 {
       $line=16;
       java.util.Scanner sc=null;
       sc=$invokeConstructor(java.util.Scanner.class,new Object[]{$invokeField(System.class,"in",true,null)});
+      $line=17;
+      Object coder=$fix(project2.createCoder());
       $line=18;
       Object deCoder=$fix(project2.createDecoder());
-      $line=24;
-      Utilities.test($cast(gold.structures.automaton.IAutomaton.class,deCoder));
+      $line=25;
+      Utilities.testCodeDecode($cast(gold.structures.automaton.ITransducer.class,coder),$cast(gold.structures.automaton.ITransducer.class,deCoder));
     }
     catch (Throwable $throwable) {
       $rethrow($throwable,project2.class,"main",$line);
@@ -481,22 +483,23 @@ public final class project2 {
         }
         else {
           $line=228;
-          if ($opEqualY(indice,1)) {
+          if ($opEqualY(indice,2)) {
             $line=228;
             $result=GCollections.asList(sigma,alpha,project2.minusculaMisma(input),$opModulY($opAdditY(indice,1),3));
             if (true) break $try;
           }
-          else {
-            $line=230;
-            $result=GCollections.asList(sigma,alpha,anterior,indice);
-            if (true) break $try;
-          }
         }
       }
-      $line=236;
-      $result=GCollections.asList(sigma,alpha,anterior,indice);
+      $line=234;
+      if (($opGreaqY($opSubtrY(input,0),65)&&$opLessqY($opSubtrY(input,0),90))) {
+        $line=235;
+        $result=GCollections.asList(sigma,alpha,anterior,indice);
+        if (true) break $try;
+      }
+      $line=240;
+      $result=GCollections.asList(sigma,alpha,input,$opModulY($opAdditY(indice,1),3));
       if (true) break $try;
-      $line=237;
+      $line=241;
       $rethrow(new RuntimeException("The function \"\u03B41(\u27E8sigma,alpha,anterior,indice\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -508,10 +511,10 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=241;
+      $line=245;
       $result="";
       if (true) break $try;
-      $line=242;
+      $line=246;
       $rethrow(new RuntimeException("The function \"h1(estado:Object,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -528,88 +531,88 @@ public final class project2 {
       Object alpha=$v8.next();
       Object anterior=$v8.next();
       Object indice=$v8.next();
-      $line=247;
+      $line=251;
       if ($opMembrY(input,$opIntvlY('0','4'))) {
-        $line=247;
+        $line=251;
         $result='$';
         if (true) break $try;
       }
-      $line=249;
+      $line=253;
       if ($opEqualY(input,'#')) {
-        $line=249;
+        $line=253;
         $result=anterior;
         if (true) break $try;
       }
       else {
-        $line=251;
+        $line=255;
         if ($opEqualY(input,':')) {
-          $line=251;
+          $line=255;
           $result=input;
           if (true) break $try;
         }
       }
-      $line=257;
+      $line=261;
       if (($opEqualY(input,sigma)&&!$opEqualY(alpha,"null"))) {
-        $line=257;
+        $line=261;
         $result=alpha;
         if (true) break $try;
       }
       else {
-        $line=259;
+        $line=263;
         if (($opEqualY(input,alpha)&&!$opEqualY(sigma,"null"))) {
-          $line=259;
+          $line=263;
           $result=sigma;
           if (true) break $try;
         }
       }
-      $line=264;
+      $line=268;
       if (((($opGreaqY($opSubtrY(input,0),65)&&$opLessqY($opSubtrY(input,0),90))&&!$opEqualY(sigma,"null"))&&!$opEqualY(alpha,"null"))) {
-        $line=266;
+        $line=270;
         if ($opEqualY(indice,1)) {
-          $line=266;
+          $line=270;
           $result=project2.minusculaAnterior(input);
           if (true) break $try;
         }
         else {
-          $line=268;
+          $line=272;
           if ($opEqualY(indice,2)) {
-            $line=268;
+            $line=272;
             $result=project2.minusculaMisma(input);
             if (true) break $try;
           }
           else {
-            $line=270;
+            $line=274;
             $result="";
             if (true) break $try;
           }
         }
       }
       else {
-        $line=274;
+        $line=278;
         if (($opGreaqY($opSubtrY(input,0),65)&&$opLessqY($opSubtrY(input,0),90))) {
-          $line=274;
+          $line=278;
           $result="";
           if (true) break $try;
         }
       }
-      $line=277;
+      $line=283;
       if (($opEqualY(sigma,"null")&&$opEqualY(alpha,"null"))) {
-        $line=277;
+        $line=283;
         $result=input;
         if (true) break $try;
       }
       else {
-        $line=279;
+        $line=285;
         if ((!$opEqualY(sigma,"null")&&$opEqualY(alpha,"null"))) {
-          $line=279;
+          $line=285;
           $result=input;
           if (true) break $try;
         }
       }
-      $line=284;
+      $line=290;
       $result=input;
       if (true) break $try;
-      $line=285;
+      $line=291;
       $rethrow(new RuntimeException("The function \"h1(\u27E8sigma,alpha,anterior,indice\u27E9:java.lang.Iterable,input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -621,16 +624,16 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=292;
+      $line=298;
       Object newSymbol=$fix($opSubtrY(input,0));
-      $line=293;
+      $line=299;
       newSymbol=$fix($opAdditY(newSymbol,32));
-      $line=294;
+      $line=300;
       char[] toCharResult=$cast(char[].class,$fix(Character.toChars($int(newSymbol))));
-      $line=295;
+      $line=301;
       $result=((char[])toCharResult)[$int(0)];
       if (true) break $try;
-      $line=296;
+      $line=302;
       $rethrow(new RuntimeException("The function \"minusculaMisma(input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
@@ -642,24 +645,24 @@ public final class project2 {
     int $line=0;
     Object $result=null;
     $try:try {
-      $line=300;
+      $line=306;
       if ($opEqualY(input,'A')) {
-        $line=301;
+        $line=307;
         $result='z';
         if (true) break $try;
       }
       else {
-        $line=303;
+        $line=309;
         Object newSymbol=$fix($opSubtrY(input,0));
-        $line=304;
+        $line=310;
         newSymbol=$fix($opAdditY(newSymbol,31));
-        $line=305;
+        $line=311;
         char[] toCharResult=$cast(char[].class,$fix(Character.toChars($int(newSymbol))));
-        $line=306;
+        $line=312;
         $result=((char[])toCharResult)[$int(0)];
         if (true) break $try;
       }
-      $line=308;
+      $line=314;
       $rethrow(new RuntimeException("The function \"minusculaAnterior(input:Object)\" did not return a value."));
     }
     catch (Throwable $throwable) {
