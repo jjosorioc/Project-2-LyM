@@ -30,7 +30,7 @@ end
 
 
 
-function createCoder():ITransducer begin
+function createCoder():ITransducer begin //Creates decoder
 	
 	sigma := ('a'‥'z')∪{"null"}
 	mod3 := {0,1,2}
@@ -144,7 +144,7 @@ end
 
 
 function upperShift(symbol, shift) begin
-	newSymbol = 0
+	newSymbol = 0 //Cambio de letras a mayuscula, se mueve 1 o 0
 	
 	if shift = 0 and symbol≠'z' then newSymbol := symbol - 32
 	elseif symbol≠'z' then 
@@ -294,7 +294,7 @@ end
  
  // Funciones para los inputs en mayúscula
  
- function minusculaMisma(input) begin
+ function minusculaMisma(input) begin //Pasa una letra a minuscula A --> a
  	newSymbol = input-0
  	newSymbol = newSymbol + 32
  	toCharResult: char[]:= Character.toChars(newSymbol)
@@ -308,8 +308,8 @@ end
  	else
 	  	newSymbol = input-0
 	 	newSymbol = newSymbol + 31
-	 	toCharResult: char[]:= Character.toChars(newSymbol)
-		return toCharResult[0]	
+	 	toCharResult: char[]:= Character.toChars(newSymbol) //Pasa una letra a minuscula 
+		return toCharResult[0]									// y toma la anterior A --> z
  	end
  end
  
